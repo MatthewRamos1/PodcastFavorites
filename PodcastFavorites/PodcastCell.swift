@@ -15,6 +15,19 @@ class PodcastCell: UITableViewCell {
     @IBOutlet weak var podcastArtistName: UILabel!
     
     func configureCell(podcast: Podcast) {
-        
+        podcastNameLabel.text = podcast.collectionName
+        podcastArtistName.text = podcast.artistName
+        podcastImage.getImage(with: podcast.artworkUrl600, completion: { [weak self] (result) in
+            switch result {
+            case .failure:
+                DispatchQueue.main.async {
+                    self?.podcastImage.image = UIImage(systemName: "xmark.icloud")
+                }
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.podcastImage.image = image
+                }
+            }
+        })
     }
 }

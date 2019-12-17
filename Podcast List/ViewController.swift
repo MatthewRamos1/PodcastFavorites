@@ -23,20 +23,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchPodcasts(searchQuery: "swift")
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     func searchPodcasts (searchQuery: String) {
-        PodcastSearchAPI.fetchShow(searchQuery: searchQuery, completion: { [weak self] (result) in
+        PodcastSearchAPI.fetchPodcasts(searchQuery: searchQuery, completion: { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 DispatchQueue.main.async {
                     self?.showAlert(title: "Error: Could not read data", message: "\(appError)")
                 }
             case .success(let podcasts):
-                DispatchQueue.main.async {
+                //DispatchQueue.main.async {
                     self?.podcasts = podcasts
-                }
+                //}
                 }
             }
         )
@@ -48,10 +50,18 @@ extension ViewController: UITableViewDataSource {
         podcasts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "podcastCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "podcastCell", for: indexPath) as? PodcastCell else {
+            fatalError("Couldn't pull PodcastCells")
+        }
         let
         podcast = podcasts[indexPath.row]
-        
+        cell.configureCell(podcast: podcast)
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        207
     }
 }

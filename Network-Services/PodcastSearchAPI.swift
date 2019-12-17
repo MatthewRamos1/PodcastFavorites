@@ -10,7 +10,7 @@ import Foundation
 
 struct PodcastSearchAPI {
     
-    static func fetchShow (searchQuery: String, completion: @escaping (Result<[Podcast],AppError>) -> ()) {
+    static func fetchPodcasts (searchQuery: String, completion: @escaping (Result<[Podcast],AppError>) -> ()) {
         
         let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "swift"
         let showEndPointURL = "https://itunes.apple.com/search?media=podcast&limit=200&term=\(searchQuery)"

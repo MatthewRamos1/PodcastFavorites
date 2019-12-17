@@ -19,6 +19,8 @@
 		0C4FACF723A936EE00E78B85 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FACF623A936EE00E78B85 /* Podcast.swift */; };
 		0C4FACFC23A94C1800E78B85 /* UIViewContoller + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FACFB23A94C1800E78B85 /* UIViewContoller + Alerts.swift */; };
 		0C4FAD0023A94E7100E78B85 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FACFF23A94E7100E78B85 /* PodcastCell.swift */; };
+		0C4FAD0223A969EB00E78B85 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0123A969EB00E78B85 /* UIImageView + Extensions.swift */; };
+		0C4FAD0423A9737700E78B85 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0323A9737700E78B85 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		0C4FACF623A936EE00E78B85 /* Podcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		0C4FACFB23A94C1800E78B85 /* UIViewContoller + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContoller + Alerts.swift"; sourceTree = "<group>"; };
 		0C4FACFF23A94E7100E78B85 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
+		0C4FAD0123A969EB00E78B85 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		0C4FAD0323A9737700E78B85 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				0C4FACDF23A92DF200E78B85 /* ViewController.swift */,
+				0C4FAD0323A9737700E78B85 /* DetailViewController.swift */,
 			);
 			path = "Podcast List";
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				0C4FACFB23A94C1800E78B85 /* UIViewContoller + Alerts.swift */,
+				0C4FAD0123A969EB00E78B85 /* UIImageView + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,10 +194,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C4FAD0423A9737700E78B85 /* DetailViewController.swift in Sources */,
 				0C4FACF023A934B700E78B85 /* AppError.swift in Sources */,
 				0C4FACF723A936EE00E78B85 /* Podcast.swift in Sources */,
 				0C4FACFC23A94C1800E78B85 /* UIViewContoller + Alerts.swift in Sources */,
 				0C4FACE023A92DF200E78B85 /* ViewController.swift in Sources */,
+				0C4FAD0223A969EB00E78B85 /* UIImageView + Extensions.swift in Sources */,
 				0C4FACF223A934D800E78B85 /* NetworkHelper.swift in Sources */,
 				0C4FACDC23A92DF200E78B85 /* AppDelegate.swift in Sources */,
 				0C4FACDE23A92DF200E78B85 /* SceneDelegate.swift in Sources */,
