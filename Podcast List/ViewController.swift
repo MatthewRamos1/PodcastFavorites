@@ -26,6 +26,14 @@ class ViewController: UIViewController {
         searchPodcasts(searchQuery: "swift")
         tableView.dataSource = self
         tableView.delegate = self
+        searchBar.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("Error: Check prepare for segue")
+        }
+        detailVC.podcast = podcasts[indexPath.row]
     }
 
     func searchPodcasts (searchQuery: String) {
@@ -63,5 +71,15 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         207
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchQuery = searchBar.text else {
+            showAlert(title: "Error", message: "Text is required")
+            return
+        }
+        searchPodcasts(searchQuery: searchQuery)
     }
 }

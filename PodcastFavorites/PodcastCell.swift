@@ -11,11 +11,11 @@ import UIKit
 class PodcastCell: UITableViewCell {
 
     @IBOutlet weak var podcastImage: UIImageView!
-    @IBOutlet weak var podcastNameLabel: UILabel!
+    @IBOutlet weak var podcastName: UILabel!
     @IBOutlet weak var podcastArtistName: UILabel!
     
     func configureCell(podcast: Podcast) {
-        podcastNameLabel.text = podcast.collectionName
+        podcastName.text = podcast.collectionName
         podcastArtistName.text = podcast.artistName
         podcastImage.getImage(with: podcast.artworkUrl600, completion: { [weak self] (result) in
             switch result {

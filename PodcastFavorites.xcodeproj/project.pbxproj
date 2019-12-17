@@ -21,6 +21,7 @@
 		0C4FAD0023A94E7100E78B85 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FACFF23A94E7100E78B85 /* PodcastCell.swift */; };
 		0C4FAD0223A969EB00E78B85 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0123A969EB00E78B85 /* UIImageView + Extensions.swift */; };
 		0C4FAD0423A9737700E78B85 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0323A9737700E78B85 /* DetailViewController.swift */; };
+		0C4FAD0623A989FE00E78B85 /* PostedPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0523A989FE00E78B85 /* PostedPodcast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0C4FACFF23A94E7100E78B85 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
 		0C4FAD0123A969EB00E78B85 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
 		0C4FAD0323A9737700E78B85 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0C4FAD0523A989FE00E78B85 /* PostedPodcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedPodcast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				0C4FACE923A92DF800E78B85 /* Info.plist */,
 				0C4FACF623A936EE00E78B85 /* Podcast.swift */,
 				0C4FACFF23A94E7100E78B85 /* PodcastCell.swift */,
+				0C4FAD0523A989FE00E78B85 /* PostedPodcast.swift */,
 			);
 			path = PodcastFavorites;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				0C4FAD0423A9737700E78B85 /* DetailViewController.swift in Sources */,
 				0C4FACF023A934B700E78B85 /* AppError.swift in Sources */,
 				0C4FACF723A936EE00E78B85 /* Podcast.swift in Sources */,
+				0C4FAD0623A989FE00E78B85 /* PostedPodcast.swift in Sources */,
 				0C4FACFC23A94C1800E78B85 /* UIViewContoller + Alerts.swift in Sources */,
 				0C4FACE023A92DF200E78B85 /* ViewController.swift in Sources */,
 				0C4FAD0223A969EB00E78B85 /* UIImageView + Extensions.swift in Sources */,

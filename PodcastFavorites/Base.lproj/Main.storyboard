@@ -60,7 +60,7 @@
                                         <connections>
                                             <outlet property="podcastArtistName" destination="P7v-bS-JXp" id="pke-EO-EWl"/>
                                             <outlet property="podcastImage" destination="JIc-A2-v5M" id="1y1-KP-yhO"/>
-                                            <outlet property="podcastNameLabel" destination="Cfz-FI-Qd5" id="QS0-Ff-86F"/>
+                                            <outlet property="podcastName" destination="Cfz-FI-Qd5" id="QS0-Ff-86F"/>
                                             <segue destination="qN8-KK-VyW" kind="show" id="eVQ-qA-ZsU"/>
                                         </connections>
                                     </tableViewCell>
@@ -89,10 +89,10 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="128.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="hiq-De-3jH">
             <objects>
-                <viewController id="qN8-KK-VyW" sceneMemberID="viewController">
+                <viewController id="qN8-KK-VyW" customClass="DetailViewController" customModule="PodcastFavorites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LWR-Cj-peJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9sd-Cs-lD3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BnT-yO-lc7"/>
+                    <navigationItem key="navigationItem" id="BnT-yO-lc7">
+                        <barButtonItem key="rightBarButtonItem" title="+ Favorite" id="3nZ-ud-PCN">
+                            <connections>
+                                <action selector="addFavButtonPressed:" destination="qN8-KK-VyW" id="0bN-wD-hZi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="artistName" destination="j6S-j7-35W" id="TNh-Qs-kCS"/>
+                        <outlet property="podcastImage" destination="KnA-U9-jZo" id="Pkt-gV-0p1"/>
+                        <outlet property="podcastName" destination="rn1-V6-0Eo" id="tby-6f-lKJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHd-NT-o2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
