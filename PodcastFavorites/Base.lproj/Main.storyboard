@@ -23,13 +23,46 @@
                                 <rect key="frame" x="0.0" y="196" width="414" height="617"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="E1g-OF-hsk">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="podcastCell" rowHeight="204" id="E1g-OF-hsk" customClass="PodcastCell" customModule="PodcastFavorites" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E1g-OF-hsk" id="7ae-Na-9ff">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JIc-A2-v5M">
+                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="204"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7v-bS-JXp">
+                                                    <rect key="frame" x="215" y="92" width="179" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Podcast Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfz-FI-Qd5">
+                                                    <rect key="frame" x="215" y="63" width="179" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="JIc-A2-v5M" secondAttribute="bottom" id="Mr1-q5-WJq"/>
+                                                <constraint firstItem="JIc-A2-v5M" firstAttribute="leading" secondItem="7ae-Na-9ff" secondAttribute="leading" id="Z6Q-Io-yyy"/>
+                                                <constraint firstItem="JIc-A2-v5M" firstAttribute="top" secondItem="7ae-Na-9ff" secondAttribute="top" id="lhd-XU-RtY"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="JIc-A2-v5M" firstAttribute="width" secondItem="E1g-OF-hsk" secondAttribute="width" multiplier="0.5" id="BqP-W2-Iec"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="podcastArtistName" destination="P7v-bS-JXp" id="pke-EO-EWl"/>
+                                            <outlet property="podcastImage" destination="JIc-A2-v5M" id="1y1-KP-yhO"/>
+                                            <outlet property="podcastNameLabel" destination="Cfz-FI-Qd5" id="QS0-Ff-86F"/>
+                                            <segue destination="qN8-KK-VyW" kind="show" id="eVQ-qA-ZsU"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -47,6 +80,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Podcasts List" id="2mD-PO-Ofa"/>
+                    <connections>
+                        <outlet property="searchBar" destination="bfQ-SF-7Cq" id="kre-mA-Msm"/>
+                        <outlet property="tableView" destination="pwQ-iw-2By" id="zuf-07-Znb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,6 +99,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="9sd-Cs-lD3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="BnT-yO-lc7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHd-NT-o2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,14 +112,39 @@
                     <view key="view" contentMode="scaleToFill" id="CLH-f1-GZS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1ul-1G-a3n">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="podcastCell" rowHeight="140" id="Ngy-7N-vS7">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ngy-7N-vS7" id="0nC-q5-A73">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="va0-jF-0Ea" kind="show" id="fr6-2k-6cn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1ul-1G-a3n" firstAttribute="bottom" secondItem="ZRF-9p-Zsa" secondAttribute="bottom" id="F7p-LF-nCi"/>
+                            <constraint firstItem="1ul-1G-a3n" firstAttribute="trailing" secondItem="ZRF-9p-Zsa" secondAttribute="trailing" id="L7I-Bb-pR2"/>
+                            <constraint firstItem="1ul-1G-a3n" firstAttribute="top" secondItem="ZRF-9p-Zsa" secondAttribute="top" id="ZX3-za-YEc"/>
+                            <constraint firstItem="1ul-1G-a3n" firstAttribute="leading" secondItem="ZRF-9p-Zsa" secondAttribute="leading" id="jSC-LI-dCN"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZRF-9p-Zsa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="gyC-8y-PAg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbp-LE-mze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1958" y="877"/>
+            <point key="canvasLocation" x="1957.9710144927537" y="876.5625"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="P9r-pN-40M">
@@ -93,6 +156,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iFR-Ou-PXw"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yxU-79-3ND"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="riN-uB-gct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -142,6 +206,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8n5-dx-1dF" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZDm-ZT-gPm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
