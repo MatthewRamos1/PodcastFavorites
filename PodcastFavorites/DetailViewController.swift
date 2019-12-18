@@ -44,7 +44,22 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addFavButtonPressed(_ sender: UIBarButtonItem) {
-        
-    }
-    
+        guard let detailVCPodcast = podcast else {
+            fatalError("Error: Can't pull Podcast, check prepare for segue")
+        }
+        PodcastAPI.postPodcast(podcast: Podcast(trackId: detailVCPodcast.trackId, collectionName: detailVCPodcast.collectionName, artworkUrl600: detailVCPodcast.artworkUrl600, artistName: detailVCPodcast.artistName, favoritedBy: "Matthew Ramos"), completion: { [weak self, weak sender] (result) in
+            switch result {
+            case .failure(let appError):
+            DispatchQueue.main.async {
+                    self?.showAlert(title: "Failed to Post Favorite", message: "\(appError)")
+                    sender?.isEnabled = true
+                  }
+                case .success:
+                  DispatchQueue.main.async {
+                    self?.showAlert(title: "Favorite Posted", message: "Your favorite has been posted to favorites.")
+                    }
+                }
+            }
+        )
+        }
 }

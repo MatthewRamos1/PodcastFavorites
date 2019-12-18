@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PodcastSearchAPI {
+struct PodcastAPI {
     
     static func fetchPodcasts (searchQuery: String, completion: @escaping (Result<[Podcast],AppError>) -> ()) {
         
@@ -35,6 +35,34 @@ struct PodcastSearchAPI {
                     completion(.failure(.decodingError(error)))
                 }
             }
+        }
+    }
+    
+    static func postPodcast (podcast: Podcast, completion: @escaping (Result<Bool, AppError>) -> ()) {
+        
+        let podcastURLString = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
+        
+        guard let url = URL(string: podcastURLString) else {
+            return
+        }
+        
+        do {
+            let data = try JSONEncoder().encode(podcast)
+            var request = URLRequest(url: url)
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = data
+            request.httpMethod = "POST"
+            
+            NetworkHelper.shared.performDataTask(with: request, completion: { (result) in
+                switch result {
+                case .failure(let appError):
+                    completion(.failure(.networkClientError(appError)))
+                case .success:
+                    completion(.success(true))
+                }
+            })
+        } catch {
+            completion(.failure(.encodingError(error)))
         }
     }
 }

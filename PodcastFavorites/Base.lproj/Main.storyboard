@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kHd-NT-o2J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786.9565217391305" y="128.57142857142856"/>
+            <point key="canvasLocation" x="2987" y="518"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Yf4-b5-lJS">
@@ -157,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="podcastCell" rowHeight="140" id="Ngy-7N-vS7">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="140" id="Ngy-7N-vS7">
                                         <rect key="frame" x="0.0" y="28" width="414" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ngy-7N-vS7" id="0nC-q5-A73">
@@ -165,7 +165,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="va0-jF-0Ea" kind="show" id="fr6-2k-6cn"/>
+                                            <segue destination="qN8-KK-VyW" kind="show" id="Ojl-lK-XPn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -186,27 +186,11 @@
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="876.5625"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="P9r-pN-40M">
-            <objects>
-                <viewController id="va0-jF-0Ea" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JJg-iz-v4l">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="iFR-Ou-PXw"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="yxU-79-3ND"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="riN-uB-gct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2787" y="877"/>
-        </scene>
-        <!--Item-->
+        <!--Podcasts-->
         <scene sceneID="KKj-hX-3PF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UgE-qs-aSL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="3lk-qe-8hW"/>
+                    <tabBarItem key="tabBarItem" title="Podcasts" image="mic.fill" catalog="system" id="3lk-qe-8hW"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="xg9-KS-tBt">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -221,11 +205,11 @@
             </objects>
             <point key="canvasLocation" x="1048" y="129"/>
         </scene>
-        <!--Item-->
+        <!--Favorites-->
         <scene sceneID="D5w-1C-SGi">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xmm-kM-qKQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pKs-WR-75i"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="pKs-WR-75i"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="UWh-q1-gET">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -260,4 +244,11 @@
             <point key="canvasLocation" x="-149" y="518"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mic.fill" catalog="system" width="54" height="64"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ojl-lK-XPn"/>
+    </inferredMetricsTieBreakers>
 </document>

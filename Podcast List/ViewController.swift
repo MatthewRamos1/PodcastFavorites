@@ -37,7 +37,7 @@ class ViewController: UIViewController {
     }
 
     func searchPodcasts (searchQuery: String) {
-        PodcastSearchAPI.fetchPodcasts(searchQuery: searchQuery, completion: { [weak self] (result) in
+        PodcastAPI.fetchPodcasts(searchQuery: searchQuery, completion: { [weak self] (result) in
             switch result {
             case .failure(let appError):
                 DispatchQueue.main.async {

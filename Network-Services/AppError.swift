@@ -14,6 +14,7 @@ enum AppError: Error {
   case networkClientError(Error)
   case noData
   case decodingError(Error)
+  case encodingError(Error)
   case badStatusCode(Int)
   case badMimeType(String)
 }
