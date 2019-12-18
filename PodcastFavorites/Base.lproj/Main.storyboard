@@ -33,16 +33,14 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JIc-A2-v5M">
                                                     <rect key="frame" x="0.0" y="0.0" width="207" height="204"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7v-bS-JXp">
-                                                    <rect key="frame" x="215" y="92" width="179" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7v-bS-JXp">
+                                                    <rect key="frame" x="215" y="91.5" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Podcast Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfz-FI-Qd5">
-                                                    <rect key="frame" x="215" y="63" width="179" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfz-FI-Qd5">
+                                                    <rect key="frame" x="215" y="62.5" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -50,8 +48,14 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="JIc-A2-v5M" secondAttribute="bottom" id="Mr1-q5-WJq"/>
+                                                <constraint firstItem="Cfz-FI-Qd5" firstAttribute="leading" secondItem="JIc-A2-v5M" secondAttribute="trailing" constant="8" id="VlS-So-dER"/>
                                                 <constraint firstItem="JIc-A2-v5M" firstAttribute="leading" secondItem="7ae-Na-9ff" secondAttribute="leading" id="Z6Q-Io-yyy"/>
+                                                <constraint firstItem="Cfz-FI-Qd5" firstAttribute="trailing" secondItem="7ae-Na-9ff" secondAttribute="trailingMargin" constant="8" id="ZWI-QA-4GF"/>
+                                                <constraint firstItem="P7v-bS-JXp" firstAttribute="trailing" secondItem="7ae-Na-9ff" secondAttribute="trailingMargin" constant="8" id="cVE-w7-wiT"/>
+                                                <constraint firstItem="P7v-bS-JXp" firstAttribute="top" secondItem="Cfz-FI-Qd5" secondAttribute="bottom" constant="8" id="dgg-cu-Wy4"/>
                                                 <constraint firstItem="JIc-A2-v5M" firstAttribute="top" secondItem="7ae-Na-9ff" secondAttribute="top" id="lhd-XU-RtY"/>
+                                                <constraint firstItem="P7v-bS-JXp" firstAttribute="leading" secondItem="JIc-A2-v5M" secondAttribute="trailing" constant="8" id="upF-De-GXk"/>
+                                                <constraint firstItem="P7v-bS-JXp" firstAttribute="centerY" secondItem="JIc-A2-v5M" secondAttribute="centerY" id="v60-lO-V5i"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -148,7 +152,7 @@
         <!--Favorites-->
         <scene sceneID="Yf4-b5-lJS">
             <objects>
-                <viewController id="qP1-0q-Jog" sceneMemberID="viewController">
+                <viewController id="qP1-0q-Jog" customClass="FavoritesListViewController" customModule="PodcastFavorites" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CLH-f1-GZS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,15 +161,49 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="140" id="Ngy-7N-vS7">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="204" id="pKG-Co-Vhn" customClass="PodcastCell" customModule="PodcastFavorites" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ngy-7N-vS7" id="0nC-q5-A73">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKG-Co-Vhn" id="BYG-QP-sR0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBj-lW-xE8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="207" height="204"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbD-uh-YYq">
+                                                    <rect key="frame" x="215" y="91.5" width="187" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Podcast Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QAi-3c-bJZ">
+                                                    <rect key="frame" x="215" y="62.5" width="187" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VbD-uh-YYq" firstAttribute="trailing" secondItem="BYG-QP-sR0" secondAttribute="trailingMargin" constant="8" id="0Bt-Y9-1hm"/>
+                                                <constraint firstItem="QAi-3c-bJZ" firstAttribute="leading" secondItem="wBj-lW-xE8" secondAttribute="trailing" constant="8" id="B4b-Gb-r7W"/>
+                                                <constraint firstItem="VbD-uh-YYq" firstAttribute="top" secondItem="QAi-3c-bJZ" secondAttribute="bottom" constant="8" id="Ggr-TD-Cxs"/>
+                                                <constraint firstItem="VbD-uh-YYq" firstAttribute="leading" secondItem="wBj-lW-xE8" secondAttribute="trailing" constant="8" id="PnL-ez-5Tn"/>
+                                                <constraint firstItem="VbD-uh-YYq" firstAttribute="centerY" secondItem="wBj-lW-xE8" secondAttribute="centerY" id="UHm-8d-4qJ"/>
+                                                <constraint firstItem="QAi-3c-bJZ" firstAttribute="trailing" secondItem="BYG-QP-sR0" secondAttribute="trailingMargin" constant="8" id="WfB-pC-q2n"/>
+                                                <constraint firstAttribute="bottom" secondItem="wBj-lW-xE8" secondAttribute="bottom" id="fhO-08-ftD"/>
+                                                <constraint firstItem="wBj-lW-xE8" firstAttribute="top" secondItem="BYG-QP-sR0" secondAttribute="top" id="nvR-dd-hKe"/>
+                                                <constraint firstItem="wBj-lW-xE8" firstAttribute="leading" secondItem="BYG-QP-sR0" secondAttribute="leading" id="to3-Zy-CGp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="wBj-lW-xE8" firstAttribute="width" secondItem="pKG-Co-Vhn" secondAttribute="width" multiplier="0.5" id="oQC-lv-0hI"/>
+                                        </constraints>
                                         <connections>
-                                            <segue destination="qN8-KK-VyW" kind="show" id="Ojl-lK-XPn"/>
+                                            <outlet property="podcastArtistName" destination="VbD-uh-YYq" id="uO1-9v-y6T"/>
+                                            <outlet property="podcastImage" destination="wBj-lW-xE8" id="Szr-80-VWd"/>
+                                            <outlet property="podcastName" destination="QAi-3c-bJZ" id="Om4-qB-NGZ"/>
+                                            <segue destination="qN8-KK-VyW" kind="show" id="1dI-Pu-ZrA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -181,6 +219,9 @@
                         <viewLayoutGuide key="safeArea" id="ZRF-9p-Zsa"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="gyC-8y-PAg"/>
+                    <connections>
+                        <outlet property="tableView" destination="1ul-1G-a3n" id="ezt-gL-eS8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbp-LE-mze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -249,6 +290,6 @@
         <image name="star.fill" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ojl-lK-XPn"/>
+        <segue reference="1dI-Pu-ZrA"/>
     </inferredMetricsTieBreakers>
 </document>

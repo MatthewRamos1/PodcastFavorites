@@ -13,10 +13,10 @@ struct PodcastAPI {
     static func fetchPodcasts (searchQuery: String, completion: @escaping (Result<[Podcast],AppError>) -> ()) {
         
         let searchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "swift"
-        let showEndPointURL = "https://itunes.apple.com/search?media=podcast&limit=200&term=\(searchQuery)"
+        let podcastEndPointURL = "https://itunes.apple.com/search?media=podcast&limit=200&term=\(searchQuery)"
         
-        guard let url = URL(string: showEndPointURL) else {
-            completion(.failure(.badURL(showEndPointURL)))
+        guard let url = URL(string: podcastEndPointURL) else {
+            completion(.failure(.badURL(podcastEndPointURL)))
             return
         }
         
@@ -64,5 +64,30 @@ struct PodcastAPI {
         } catch {
             completion(.failure(.encodingError(error)))
         }
+    }
+    
+    static func getFavorites (completion: @escaping (Result<[Podcast], AppError>) -> ()) {
+        let podcastEndPointURL = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
+        guard let url = URL(string: podcastEndPointURL) else {
+            completion(.failure(.badURL(podcastEndPointURL)))
+            return
+        }
+        let request = URLRequest(url: url)
+        NetworkHelper.shared.performDataTask(with: request, completion: { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let podcastData = try JSONDecoder().decode(PodcastData.self, from: data)
+                    let podcasts = podcastData.results
+                    let favorites = podcasts.filter { $0.favoritedBy == "Matthew Ramos"}
+                    completion(.success(favorites))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+            }
+        }
+        )
     }
 }

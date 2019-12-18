@@ -23,6 +23,7 @@
 		0C4FAD0423A9737700E78B85 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0323A9737700E78B85 /* DetailViewController.swift */; };
 		0C4FAD0623A989FE00E78B85 /* PostedPodcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0523A989FE00E78B85 /* PostedPodcast.swift */; };
 		0C4FAD0E23AA7A2C00E78B85 /* PodcastFavoritesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD0D23AA7A2C00E78B85 /* PodcastFavoritesTests.swift */; };
+		0C4FAD1623AABD4300E78B85 /* FavoritesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4FAD1523AABD4300E78B85 /* FavoritesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		0C4FAD0B23AA7A2C00E78B85 /* PodcastFavoritesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodcastFavoritesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C4FAD0D23AA7A2C00E78B85 /* PodcastFavoritesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastFavoritesTests.swift; sourceTree = "<group>"; };
 		0C4FAD0F23AA7A2C00E78B85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C4FAD1523AABD4300E78B85 /* FavoritesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		0C4FACF923A93A8100E78B85 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				0C4FAD1523AABD4300E78B85 /* FavoritesListViewController.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				0C4FACFC23A94C1800E78B85 /* UIViewContoller + Alerts.swift in Sources */,
 				0C4FACE023A92DF200E78B85 /* ViewController.swift in Sources */,
 				0C4FAD0223A969EB00E78B85 /* UIImageView + Extensions.swift in Sources */,
+				0C4FAD1623AABD4300E78B85 /* FavoritesListViewController.swift in Sources */,
 				0C4FACF223A934D800E78B85 /* NetworkHelper.swift in Sources */,
 				0C4FACDC23A92DF200E78B85 /* AppDelegate.swift in Sources */,
 				0C4FACDE23A92DF200E78B85 /* SceneDelegate.swift in Sources */,
