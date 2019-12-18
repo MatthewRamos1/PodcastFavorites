@@ -66,7 +66,7 @@ struct PodcastAPI {
         }
     }
     
-    static func getFavorites (completion: @escaping (Result<[Podcast], AppError>) -> ()) {
+    static func fetchFavorites (completion: @escaping (Result<[Podcast], AppError>) -> ()) {
         let podcastEndPointURL = "https://5c2e2a592fffe80014bd6904.mockapi.io/api/v1/favorites"
         guard let url = URL(string: podcastEndPointURL) else {
             completion(.failure(.badURL(podcastEndPointURL)))
@@ -79,8 +79,7 @@ struct PodcastAPI {
                 completion(.failure(.networkClientError(appError)))
             case .success(let data):
                 do {
-                    let podcastData = try JSONDecoder().decode(PodcastData.self, from: data)
-                    let podcasts = podcastData.results
+                    let podcasts = try JSONDecoder().decode([Podcast].self, from: data)
                     let favorites = podcasts.filter { $0.favoritedBy == "Matthew Ramos"}
                     completion(.success(favorites))
                 } catch {

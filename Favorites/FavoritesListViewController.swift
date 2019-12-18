@@ -22,11 +22,32 @@ class FavoritesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getFavorites()
         tableView.dataSource = self
         tableView.delegate = self
     }
     
-}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("Error: Check prepare for segue")
+        }
+        detailVC.podcast = favorites[indexPath.row]
+    }
+    
+    func getFavorites() {
+        PodcastAPI.fetchFavorites(completion: { [weak self] (result) in
+            switch result {
+            case .failure(let appError):
+                DispatchQueue.main.async {
+                        self?.showAlert(title: "Error: Could not read data", message: "\(appError)")
+                    }
+                case .success(let favorites):
+                        self?.favorites = favorites
+                    }
+            }
+        )
+        }
+    }
 
 extension FavoritesListViewController:
 UITableViewDataSource {

@@ -16,6 +16,6 @@ struct Podcast: Codable {
     let trackId : Int
     let collectionName: String
     let artworkUrl600: String
-    let artistName: String
+    let artistName: String?
     let favoritedBy: String?
 }
